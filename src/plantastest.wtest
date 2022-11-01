@@ -1,17 +1,46 @@
 import plantas.*
+import parcelas.*
 describe "Test de Plantas"  {
+	const parcela1=new ParcelaEcologica(ancho=20,largo=1,horasDeSol=7)
+	const parcela2=new ParcelaEcologica(ancho=5,largo=1,horasDeSol=7)
+	const menta1 = new Menta(fechaObtencion=2002,altura=1)
+	const menta2 = new Menta(fechaObtencion=2002,altura=0.3)
+	const soja1= new Soja(fechaObtencion=2009,altura=0.6)
+	const quinoa1=new Quinoa(fechaObtencion=2010,horasDeSol=12,altura=1)
+	const quinoa2=new Quinoa(fechaObtencion=2001,horasDeSol=9,altura=1)
+	const sojaT1=new SojaTransgenica(fechaObtencion=2009,altura=0.6)
 	
-	const menta1 = new Menta()
+	method initialize() {}
 	
-	method initialize() {
-		menta1.valor(3)
-	}
-	
-	test "Menta - test de ejemplo" {
-		assert.equals(3, menta1.valor())
+	test "Menta - test de menta 1 metro que da semillas" {
+		assert.equals(3, menta1.espacioQueOcupa())
+		assert.that(menta1.daNuevasSemillas())
 
 	}
-	
+	test "Menta - test de menta 0.3 metro que no da semillas" {
+		assert.equals(0.9, menta2.espacioQueOcupa())
+		assert.notThat(menta2.daNuevasSemillas())
+	}
+	test "Soja - test de soja1, horas de sol,no da semillas y espacio que ocupa"{
+	assert.equals(soja1.horasDeSol(),7)
+	assert.notThat(soja1.daNuevasSemillas())
+	assert.equals(soja1.espacioQueOcupa(),0.3)
+	}
+	test "Quinoa - test de quinoa1, da semillas"{
+		assert.that(quinoa1.daNuevasSemillas())
+	}
+	test "Quinoa - test de quinoa2, da semillas"{
+		assert.that(quinoa2.daNuevasSemillas())
+	}
+	test "menta- parcela1 es parcela ideal de menta"{
+		assert.that(menta1.esParcelaIdeal(parcela1))
+	}
+	test "soja- parcela2 es parcela ideal de soja"{
+		assert.that(soja1.esParcelaIdeal(parcela1))
+	}
+	test "sojaT- parcela2 es parcela ideal de sojaT"{
+		assert.that(sojaT1.esParcelaIdeal(parcela2))
+	}
 }
 
 

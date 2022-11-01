@@ -1,2 +1,27 @@
 import parcelas.*
-
+import plantas.*
+describe "Test de Parcelas"{
+	const parcela1=new ParcelaEcologica(ancho=20,largo=1,horasDeSol=8)
+	const soja1= new Soja(fechaObtencion=2009,altura=1)
+	const soja2= new Soja(fechaObtencion=2009,altura=1)
+	const soja3= new Soja(fechaObtencion=2009,altura=1)
+	const soja4= new Soja(fechaObtencion=2009,altura=1)
+	const soja5= new Soja(fechaObtencion=2009,altura=1)
+		method initialize() {
+			parcela1.plantar(soja1)
+			parcela1.plantar(soja2)
+			parcela1.plantar(soja3)
+			parcela1.plantar(soja4)
+		}
+	
+	test"parcelas- test de parcela1 superficie de 20 m2 y  cantidad plantas que tolera =4 "{
+		assert.equals(parcela1.superficie(),20)
+		assert.equals(parcela1.cantidadMaxima(),4)
+	}
+	test "parcelas- test de parcela 1, error para plantar "{
+		assert.throwsExceptionWithMessage(
+		"no se puede plantar", 
+		{parcela1.plantar(soja5)}
+	)
+	}
+}
