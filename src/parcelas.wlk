@@ -1,3 +1,7 @@
+/*
+ * Otra solucion en el método hayAlgunaMayorA() podría ser con any()
+ * Recordá que cuando lanzas un excepcion se corta el método por eso no es necesario poner el else en el método plantar(unaPlanta) 
+ */
 import plantas.*
 
 class Parcela {
@@ -20,7 +24,7 @@ class Parcela {
     	if(self.seSuperaLaCantidadMaxima() or self.superaPorHorasLasQueTolera(2,unaPlanta)){
     		self.error("no se puede plantar")
     	}
-    	else{plantas.add(unaPlanta)}
+    	plantas.add(unaPlanta)
     }
     method seSuperaLaCantidadMaxima()=self.cantidadDePlantas()>=self.cantidadMaxima()
 	method superaPorHorasLasQueTolera(horasQueSupera,unaPlanta)=unaPlanta.horasDeSol()+horasQueSupera<horasDeSol
