@@ -1,3 +1,6 @@
+/*
+ * Detalle infimo del <= else if(altura<=1){
+ */
 class Planta {
 	const property fechaObtencion
 	var altura
@@ -21,7 +24,7 @@ class Soja inherits Planta{
 	override method horasDeSol(){
 		if(altura < 0.5){
 			return 6
-		}else if(altura<1){
+		}else if(altura<=1){
 			return 7
 		}else{
 			return 9

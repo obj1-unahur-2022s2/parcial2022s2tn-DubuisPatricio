@@ -1,3 +1,6 @@
+/*
+ * cantidadPlantasBienAsociadas se podiar hacer con count()
+ */
 import parcelas.*
 object inta{
 	const parcelas= #{}
